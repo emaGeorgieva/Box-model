@@ -1,0 +1,25 @@
+div.polaroid {
+    width: 60%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+}
+
+div.container {
+    padding: 10px 20px;
+}
+.code{
+    margin-bottom: 5px;
+}
+.colored{
+    color: #660033;
+    font-style: italic;
+    font-weight: bold;
+}
+h4{
+    color: #660000;
+    font-weight: bold;
+}
+legend{
+    font-size: 25px;
+}

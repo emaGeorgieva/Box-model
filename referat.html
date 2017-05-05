@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS: layouts, box model</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mainView.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="javascript/menuToggle.js" type="text/javascript"></script>
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <nav id="myScrollspy">
+                <ul class="sidebar-nav nav">
+                    <li class="sidebar-brand">
+                        <a href="#home"><span class="fa fa-home solo">Начало</span></a>
+                    </li>
+                    <li>
+                        <a href="#anch1" data-scroll>
+                            <span class="fa fa-anchor solo">Въведение</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch2" data-scroll>
+                            <span class="fa fa-anchor solo">Работа с Box Model</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch3" data-scroll>
+                            <span class="fa fa-anchor solo">Width and Height</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch4" data-scroll>
+                            <span class="fa fa-anchor solo">Margin and Padding</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch5" data-scroll>
+                            <span class="fa fa-anchor solo">Border</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch6" data-scroll>
+                            <span class="fa fa-anchor solo">Други свойства</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch7" data-scroll>
+                            <span class="fa fa-anchor solo">Box Sizing</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch8" data-scroll>
+                            <span class="fa fa-anchor solo">Developer Tools</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch9" data-scroll>
+                            <span class="fa fa-anchor solo">Заключение</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch10" data-scroll>
+                            <span class="fa fa-anchor solo">Източници</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                <h1 id="home">CSS: layouts, box model</h1>
+            </div>
+
+            <div class="page-content inset" data-spy="scroll" data-target="#spy">
+               
+                <div class="row">
+                    <div class="col-md-12 well">
+                        <legend id="anch1">Въведение</legend>
+                        <p> Всеки един HTML елемент може да бъде смятан за кутия. В CSS терминът <span class="colored">„box model”</span> се използва, 
+                            когато става дума за дизайн и оформление. 
+                            Идеята на <span class="colored">„box model”</span> е, че всеки елемент в една уеб станица е правоъгълна кутия, коятo се състои от 
+                            съдържание(content),
+                            граници(<span class="colored">borders</span>), отстъпи(<span class="colored">paddings</span>) и 
+                            маржове(<span class="colored">margins</span>). Следващото изображение илюстрира този модел.
+                            <a href="#source1">[1]</a></p>
+                        <div class="polaroid">
+                            <img src="img/box- model.PNG" alt="box model" style="width:100%">
+                            <div class="container">
+                            <p>Фигура 1: Box – model според W3Schools<a href="#source1">[1]</a></p>
+                            </div>
+                        </div>
+                        <p>Моделът на кутията ни позволява да поставяме граница около елементите и да дефинираме място между тях. 
+                            Ако искаме да се убедим, че наистина всеки елемент в една страница е кутия,
+                             можем временно да добавим следния код към стиловете(shtylesheet):</p>
+                        <img src="img/important.PNG" alt="important" class="code">
+                        <p>Ето какъв би бил един примерен резултат, ако добавим този код в станица в YouTube.</p>
+                        <div class="polaroid">
+                            <img src="img/youtube- boxes.PNG" alt="youtube" style="width:100%">
+                            <div class="container">
+                            <p>Фигура 2. Кутиите, които формират една YouTube страница</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 well">
+                        <legend id="anch2">Работа с Box Model</legend>
+                        <p><span class="colored">Content</span>(съдържание) е реално същината на кутията, в която се намират текстът и илюстрациите. 
+                            Важно е да се отбележи, че когато задаваме свойствата ширина и височина на един елемент със CSS, 
+                            реално задаваме ширината и дължината на съдържанието му. За да пресметнем цялостния размер на елемента, 
+                            трябва да прибавим и отстъпите, границите и маржовете. 
+                        </p>
+                        <p>Нека предположим, че искаме да стилизираме един елемент, така че той да има цялостна ширина 350 пиксела.</p>
+                        <img src="img/width-math.PNG" alt="width-math" class="code">
+                        <p>Ето я и математиката: </p>
+                        <p>320px (width)</br>
+                        + 	20px (left + right padding) )</br>
+                        + 	10px (left + right border) )</br>
+                        +	 0px (left + right margin) )</br>
+                        = 	350px</p>
+                        <p>Общата ширина на един елемент трябва да бъде пресмятана по следния начин:</br>
+                        <span class="colored">Обща ширина на елемент = ширина + ляв отстъп + десен отстъп + лява граница + дясна граница + ляв марж +
+                             десен марж</span></br>
+                        Общата височина на един елемент трябва да бъде пресмятана по следния начин:</br>
+                        <span class="colored">Обща височина на елемент = височина + горен отстъп + долен отстъп + горна граница + долна граница +
+                             горен марж + долен марж</span></br></p>
+                        <p>Нека разгледаме още един пример:</p>
+                        <div class="polaroid">
+                            <img src="img/box-model-math.PNG" alt="box-model-math" style="width:100%">
+                            <div class="container">
+                            <p>Фигура 3. Разбит модел на кутията, включващ основна ширина и височина, отстъпи, </br>граници и 
+                            маржове.<a href="#source4-22">[4]</a></p>
+                            </div>
+                        </div>
+                        <p>Използвайки горните формули можем да пресметнем общата широчина и височина. </br>
+                            Обща ширина:  492px = 20px + 6px + 20px + 400px + 20px + 6px + 20px</br>
+                            Обща височина:  192px = 20px + 6px + 20px + 100px + 20px + 6px + 20px</br>
+                            Важно е да отбележим, че <span class="colored">Internet Explorer 8</span> и по- ранните му версии включват 
+                            отстъпите и границите към свойството ширина(<span class="colored">width</span>). За да се справим с този проблем, 
+                            трябва да добавим <span class="colored">&lt;!DOCTYPE html&gt;</span> към началото на HTML документа ни.<a href="#source2">[2]</a></p>
+                         <div class="polaroid">
+                            <img src="img/W3S vs IE.PNG" alt="W3S vs IE">
+                            <div class="container">
+                            <p>Фигура 4. Разликата между интерпретацията на модела на кутията от W3S и IE.<a href="#source3">[3]</a></p>
+                            </div>
+                        </div>
+                        <p>Без съмнение моделът на кутията е една от най – объркващите части от HTML и CSS. 
+                            Разгледаните до тук свойства може би не ни говорят много. За да изясним нещата, 
+                            ще разгледаме по подробно всички свойства, 
+                            оформящи модела на кутията, а именно – ширина и височина, отстъп, граница и марж.<a href="#source4-22">[4]</a></p>
+
+                    </div>
+                    <div class="col-md-12 well">
+                        <legend id="anch3">Width and Height</legend>
+                        <h4>Width</h4>
+                        <p>Ширината по подразбиране на елемент зависи от неговата показвана стойност. 
+                            Елементите на ниво блок(<span class="colored">block – level</span>) имат стандартна ширина от <span class="colored">100%</span>,
+                            изпълвайки цялото хоризонтално пространство. Вградените(<span class="colored">inline</span>) и
+                            блоково вградените(<span class="colored">inline – block</span>) елементи се разширяват и свиват
+                            хоризонтално, за да приспособят съдържанието си. Вградените(<span class="colored">inline</span>)
+                            елементи не могат да имат фиксиран размер, затова свойствата за ширина и 
+                            височина са от значение само за нелинейните елементи(<span class="colored">non – inline</span>). За да 
+                            зададем конкретна ширина на нелинеен елемент, трябва да използваме свойството за ширина. 
+                            <a href="#source4-22">[6]</a><p>
+                        <img src="img/width.PNG" alt="width" class="code">
+                        <p>Сега ще разгледаме още две свойства, а именно <span class="colored">max – width</span> и 
+                        <span class="colored">min – width</span>. </br>
+                            1) <span class="colored">Max – width</span> се използва за задаване на максимална ширина на елемент. 
+                            Чрез задаване на <span class="colored">max – width</span> можем да предотвратим това, нашата ширина да 
+                            стане по- голяма от максималната. <span class="colored">Max – width</span> отменя <span class="colored">width</span>, 
+                                но <span class="colored">min – width</span> отменя <span class="colored">max – width</span>.
+                            <a href="#source26">[26]</a></br>
+                            2) <span class="colored">Min – width</span> се използва за задаване на минималната ширина на даден елемент. 
+                            По този начин не можем да зададем <span class="colored">width</span>, която да е по- малка от <span class="colored">
+                                min – width</span>. 
+                            Ширината на даден елемент има стойността на <span class="colored">min – width</span>, когато 
+                            <span class="colored">min – width</span>
+                            е по – голяма от <span class="colored">max – width</span> или когато <span class="colored">min – width</span> 
+                                е по- голяма от <span class="colored">width</span>.
+                            <a href="#source27">[27]</a></p>
+
+                        <h4>Height </h4>
+                        <p>Височината по подразбиране на елемент се определя от съдържанието му. Елементът се 
+                            разширява и свива вертикално, ако е необходимо, за да се приспособи към съдържанието си. 
+                            За да зададем определена височина на нелинеен елемент, трябва да използваме свойсвото за височина. 
+                            <a href="#source4-22">[7]</a></p>
+                        <img src="img/height.PNG" alt="height" class="code">
+                        <p>Трябва да имаме предвид това, че вградените елементи(<span class="colored">inline</span>) не приемат свойства за ширина и 
+                            височина или стойности, свързани с тях. От друга страна, блоковите(<span class="colored">block</span>) и вградените 
+                            блокови(<span class="colored">inline - block</span>) елементи приемат такива свойства и стойности. </p>
+                        <p>Сега ще разгледаме още две свойства, а именно <span class="colored">max – height</span> и <span class="colored">
+                            min – height</span>. </br>
+                            1) <span class="colored">Max – height</span> се използва за задаване на максималната височина на елемент. 
+                            Чрез задаване на <span class="colored">max – height</span> можем да предотвратим това, нашата височина да 
+                            стане по- голяма от максималната. <span class="colored">Max – height</span> отменя
+                            <span class="colored"> height</span>, но <span class="colored">min – height</span> отменя <span class="colored">
+                                max – height</span>.
+                            <a href="#source24">[24]</a></br>
+                            2) <span class="colored">Min – height</span> се използва за задаване на минималната височина на даден елемент. 
+                            По този начин не можем да зададем <span class="colored">height</span>, която да е по- малка от 
+                            <span class="colored">min – height</span>. 
+                            Стойността на <span class="colored">min – height</span> отменя 
+                            <span class="colored">max – height</span> и <span class="colored">height</span>.
+                            <a href="#source25">[25]</a></p>
+                    </div>
+
+                    <div class="col-md-12 well">
+                        <legend id="anch4">Margin and Padding</legend>
+                        <p>В зависимост от елемента, браузърите могат да използват маржове и отстъпи по подразбиране, 
+                            за да подпомогнат четливостта и яснотата. Това обикновено се наблюдава при текстови елементи.
+                             Маржовте и отстъпите по подразбиране могат да се различават в зависимост от браузъра и от елемента. 
+                             Добра практика е в началото при стилизиране да нулираме тези стойности като това ни позволява да 
+                             започнем от нулата и да определяме сами стойностите им.<a href="#source4-22">[8]</a></p>
+                        <h4> Margin</h4>
+                        <p>Маржовете(<span class="colored">margins</span>) изчистват пространството извън границите.
+                         Те също са прозрачни като отстъпите.
+                            <a href="#source1">[1]</a> 
+                            Маржовете могат да се използват с цел улесняване на позиционирането на елементи на определено място
+                            на страницата или за подсигуряване, че останалите елементи са на безопасно разстояние. </p>
+                        <p>Особеност при маржовете е, че вертикалните маржове(горе и долу) не се приемат от вградени 
+                            елементи(<span class="colored">inline</span>).
+                             Те обаче се приемат от блоковите(<span class="colored">block</span>) и вградените 
+                             блокови(<span class="colored">inline – block</span>) елементи.
+                             <a href="#source4-22">[9]</a></p>
+                        <img src="img/margin.PNG" alt="padding" class="code">
+                        <h4>Collapsing Margins</h4>
+                        <p>В CSS, съседните полета на две или повече кутии (които може и може и да не са братя и сестри) могат 
+                            да се съчетаят, за да образуват един марж. Маржовете, които се комбинират по този начин, се наричат
+                             <span class="colored">collapsed</span> и полученият марж се нарича <span class="colored">collapsed margin</span>. 
+                             Прилежащите вертикални маржове се свиват с изключение на тези на кутията на елемента – корен. 
+                             От друга стана, хоризонталните полета никога не се свиват.</p>
+                        <p>Когато два или повече маржа колапснат, получената ширина на маржа е максимумът от ширините на колапснатите
+                             маржове. Когато има отрицателни маржове, максимумът на абсолютните стойности на отрицателните съседни 
+                             маржове се приспада от максимума на положителните съседни маржове. Ако няма положителни, то максимумът 
+                             на абсолютните стойности на съседните маржове се изважда от нула.<a href="#source23">[23]</a></p>
+
+                        <h4>Padding</h4>
+                        <p>Отстъпите(<span class="colored">paddings</span>) изчистват пространството около съдържанието. 
+                        Те са прозрачни.<a href="#source1">[1]</a> За разлика от маржовете, 
+                            отстъпите работят вертикално върху вградените(<span class="colored">inline</span>) елементи. 
+                            Този вертикален отстъп може да се слее с
+                             линията под или над даден елемент, но отстъпа ще се покаже.<a href="#source4-22">[10]</a></p>
+                        <img src="img/padding.PNG" alt="padding" class="code">
+                        <p>Когато става дума за маржове и отстъпи, вградените(<span class="colored">inline</span>) елементи се влияят 
+                        малко по – различно от 
+                            блоковите(<span class="colored">block</span>) и вградените блокови елементи(<span class="colored">inline – block</span>). 
+                            Маржовете работят само 
+                            хоризонатално(ляво и дясно) на вградените елементи. Отстъпите работят и на четирите им страни. 
+                            Маржовете и отстъпите работят нормално при блоковите  и вградените блокови елементи. 
+                            <a href="#source4-22">[11]</a></p>
+                        <h4>Деклариране на Margin и Padding</h4>
+                        <p>В CSS има повече от един начин за деклариране на стойности на определени свойства. Можем да използваме 
+                            дългия запис, изброявайки няколко свойства и стойности една след друга, като в него всяка стойност има 
+                            собствено свойство. Можем да използваме и кратък запис, като изброяваме няколко стойности с едно свойство.
+                             Не всички свойства имат алтернативен кратък запис, така че трябва да се уверим, че използваме правилната 
+                             структура на свойство и стойност.</p>
+                        <p>Свойствата на маржовете и отстъпите имат както дълга, така и къса форма. Когато използваме краткия запис за 
+                            марж, за да зададем една и съща стойност за всичките четири страни на даден елемент, уточняваме една 
+                            стойност:</p>
+                        <img src="img/margin.PNG" alt="margin" class="code">
+                        <p>За да зададем една стойност за горе и долу(<span class="colored">top and bottom</span>) и друга стойност за лявата и 
+                        дясната (<span class="colored">left and right</span>)
+                             страна на даден елемент, задаваме две стойности: първата за горе и долу, а втората за ляво и дясно. В примера 
+                             поставяме маржове от 15 пиксела в горната и долната част на &lt;div&gt; и маржове от 20 пиксела отляво и отдясно:</p>
+                        <img src="img/margin-two.PNG" alt="margin-two" class="code">
+                        <p>За да зададем уникални стойности за четирите страни на даден елемент, посочваме тези стойности в следния ред: 
+                            горе, дясно, долу, ляво, движейки се по посока на часовниковата стрелка. В следващия пример поставяме марж от 
+                            5 пиксела в горната част на &lt;div&gt;, 10 пиксела вдясно, 0 пиксела в долната част и 12 пиксела вляво:</p>
+                        <img src="img/margin-four.PNG" alt="margin-four" class="code">
+                        <p>Използването само на марж или отстъп с произволен брой стойности се счита за кратък запис. С дългия запис можем 
+                            да зададем стойност за една страна, използвайки уникални свойства. Името на свойството (в този случай марж или 
+                            отстъп) е последвано от тире и след него е името на страната, за която се прилага: горе, дясно, долу, ляво. 
+                            В следващия пример лявият отстъп приема само една стойност и поставя лявия отстъп за този елемент. 
+                            Свойството „горен – марж” приема само една стойност и ще зададе горния марж за този елемент.</p>
+                        <img src="img/margin-padding.PNG" alt="margin-padding" class="code">
+                        <p>Когато желаем да идентифицираме само една стойност на маржа или отстъпа е най-добре да използваме дългия запис. 
+                            Така кодът ни е ясен и ни помага да избегнем объркване.<a href="#source4-22">[12]</a></p>
+
+                        <h4>Цветове на Margin и Padding</h4>
+                        <p>Свойствата марж и отстъп са абсолютно прозрачни и не могат да приемат цветови стойности. Тъй като са прозрачни, 
+                            те показват фона на елементите, към които се отнасят. При маржа виждаме цвета на фона на елемента – родител, 
+                            а при отстъпа – този на елемента, към който се прилага отстъпа. <a href="#source4-22">[13]</a></p>
+                    </div>
+
+                    <div class="col-md-12 well">
+                        <legend id="anch5">Border</legend>
+                        <p>Границата(<span class="colored">border</span>) се намира около отстъпите и съдържанието.
+                        <a href="#source1">[1]</a> Тя реално попада между маржа
+                             и отстъпа като контур около даден елемент. Границата изисква три стойности: ширина(<span class="colored">width</span>), 
+                             стил(<span class="colored">style</span>) и цвят(<span class="colored">color</span>). 
+                             Краткият запис ни осигурява възможността да изпишем и трите стойности 
+                             на един ред, като трябва да бъдат в следната последователност: ширина, стил, цвят. Ако използваме 
+                             дългия запис, тези три стойности могат да се разбият на следните: ширина на границата(<span class="colored">border – width</span>), 
+                             стил на границата(<span class="colored">border – style</span>) и цвят на границата(<span class="colored">border – color</span>). 
+                                 Този запис е полезен при промяна 
+                             или презаписване на дадена гранична стойност.</p>
+                        <p>Границите могат да имат различен вид. Най-често срещаните стойности за стил(<span class="colored">style</span>) на границата са 
+                            плътна(<span class="colored">solid</span>), двойна(<span class="colored">double</span>), пунктирана(<span class="colored">dashed</span>), 
+                                на точки(<span class="colored">dotted</span>) и без граница(<span class="colored">none</span>), но има и други. 
+                            Следващият пример е за плътна сива граница, която я широка 6 пиксела и е около четирите страни на &lt;div&gt; 
+                            елемента.<a href="#source4-22">[14]</a></p>
+                        <img src="img/border.PNG" alt="border" class="code">
+                        <p>Ето и още примери:</p>                        
+                        <img src="img/borders- styles.PNG" alt="border-styles" class="code">
+                        <p>Както при маржа и остъпа, ако искаме, можем да имаме граница само от едната страна на даден елемент. 
+                            Това изисква някое от следните свойства: <span class="colored">border – top, border – right, border – bottom, border – left</span>. 
+                            Ако желаем например можем да имаме граница само в дъното на елемент. Освен това, стиловете за отделните 
+                            страни на границата могат да бъдат контролирани на още по – фино ниво. Можем да променим ширината на долната 
+                            граница на елемент чрез следното свойство: <span class="colored">border – bottom – width</span>. 
+                            Същото може да се направи и при другите две 
+                            свойства – цвят и стил. <a href="#source4-22">[15]</a></p>
+                        <h4>Border Radius</h4>
+                        <p>Радиусът е свойството на границата, което ни позволява да заобляме ъглите на даден елемент. 
+                            Свойството <span class="colored">border – radius</span> приема дължини, включително 
+                            проценти и пиксели, които определят радиуса, 
+                            по който ъглите на даден елемент трябва да бъдат заоблени. Една стойност ще обхване всички четири ъгъла 
+                            на един елемент еднакво; две стойности ще закръглят <span class="colored">top-left/bottom-right и top-right/bottom-left</span>
+                             ъгъли в 
+                            този ред; четири стойности ще закръглят <span class="colored">top-left, top-right, bottom-right, and bottom-left</span> в този ред.</p>
+                        <p>Също така,  радиусът на границата може да се изпише чрез дълъг запис, който ни позволява да променим 
+                            радиусите на отделните ъгли на даден елемент. Записът започва с border, продължава с вертикалното разположение 
+                            на ъгъла (<span class="colored">top или bottom</span>) и хоризонталното разположение на ъгъла (<span class="colored">left или right</span>)
+                             и след това завършва с <span class="colored">radius</span>. 
+                            Например, за да променим радиуса на горния десен ъгъл на &lt;div&gt;, можем да използваме 
+                            <span class="colored">border – top – right – radius</span>.<a href="#source4-22">[16]</a></p>
+                        <img src="img/radius-code.PNG" alt="radius-code" class="code">
+                        <p>Ето как биха изглеждали &lt;div&gt; елементи със следните свойства:</br></br>
+                        1)	border – radius: 5px;</br>
+                        2)	border – radius: 50%;</br>
+                        3)	border – radius: 15px 75px.</p>
+                        <img src="img/radius.PNG" alt="radius" class="code">
+                        <h4>Border – image </h4>
+                        <p>Border – image ни позволява да зададем изображение, което да използваме вместо нормална 
+                            граница около даден елемент. Това свойство ни дава кратък запис за настройване на следните свойства: 
+                            <span class="colored">border-image-source, border-image-slice, border-image-width, 
+                                border-image-outset and border-image-repeat</span>, 
+                            които съответно задават: пътя до изображението, което ще бъде използвано за граница; как да бъде нарязано; 
+                            каква да е ширината му; пространството, на което се простира изображението извън кутията и дали то да се повтаря, 
+                            закръгли или разтегли.<a href="#source31">[31]</a></p>
+                        <div class="polaroid">
+                            <img src="img/border-image.PNG" alt="border-image" width="100%">
+                            <div class="container">
+                            <p>Фигура 7. Примери за border – image</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12 well">
+                        <legend id="anch6">Други свойства</legend>
+                        <h4>Box – decoration – break </h4>
+                        <p><span class="colored">Box – decoration – break</span> ни позволява да контролираме това как да се изобразяват декорациите на 
+                            кутията, когато един елемент е „разкъсан”. Това може да се случи в края на някой ред, при 
+                            преминаване от колона в колона и в много други случаи. Свойствата, които са контролирани от 
+                            <span class="colored">box – decoration – break са следните: background, border, border – radius, border – image, 
+                            box – shadow, margin и padding</span>.</p>
+                        <p>Стойностите, които може да приема са:</br>
+                        1)	<span class="colored">Slice</span> първоначална стойност. Декорациите се прилагат към целия елемент и разкъсват краищата на 
+                        фрагментите му.  </br>
+                        2)	<span class="colored">Clone:</span> декорациите се прилагат за всеки фрагмент на елемента все едно, че фрагментите не са 
+                        разкъсани. Границите обгръщат и четирите ръба на всеки фрагмент от елемента и фоновете се презареждат 
+                        изцяло за всеки фрагмент поотделно.<a href="#source30">[30]</a></p>
+                        <p>В следващия пример имаме параграф с оранжева граница и 1em горен марж. Този параграф е 
+                            разделен в две колони. Горният параграф има <span class="colored">box – decoration – break: slice</span>, а вторият 
+                            <span class="colored">box – decoration – break: clone</span>.</p>
+                        <div class="polaroid">
+                            <img src="img/box-decoration-break.PNG" alt="box-decoration-break">
+                            <div class="container">
+                            <p>Фигура 6. Slice и clone стойности на box – decoration – break</p>
+                            </div>
+                        </div>
+    
+                        <h4>Overflow </h4>
+                        <p>Това свойство определя какво се случва, ако съдържанието прелее извън кутията на даден елемент.
+                            Също така определя дали да изреже съдържанието, ако то е по- голямо от определено поле. 
+                            Overflow работи само за блокови елементи с определена височина.</p>
+                        <p>Стойностите, които може да приема <span class="colored">overflow</span> са: </br>
+                        1)	<span class="colored">Visible</span> – съдържанието, което не се побира, не се изрязва, а излиза извън кутията. 
+                        Това е стойността по подразбиране. </br>
+                        2)	<span class="colored">Hidden</span> – съдържанието, което не се побира, се изрязва и не се вижда. </br>
+                        3)	<span class="colored">Scroll</span> – съдържанието, което не се побира, се изрязва, но се добавят и плъзгащи летни, 
+                        с които може да се види. </br>
+                        4)	<span class="colored">Auto</span> – ако съдържанието, което не се побира, е изрязано, то трябва автоматично да се 
+                        добавят плъзгащи ленти. </br>
+                        5)	<span class="colored">Initial</span> – поставя overflow на стойността му по подразбиране. </br>
+                        6)	<span class="colored">Inherit</span> – наследява стойността от елемента – родител.<a href="#source28">[28]</a></p>
+                        <p><span class="colored">Overflow-x</span> указва какво да се случи с левия/десния край на съдържанието, 
+                            ако то препълва елемента. А <span class="colored">overflow – y</span> какво да се случи с долния/горния край на съдържанието.</p>
+                        <h4>Box – shadow </h4>
+                        <p>Свойството <span class="colored">box – shadow</span> прикрепя една или повече сенки към елемента. 
+                            Сянката може да има дължина и цвят. Стойностите, които може да приема са: </br>
+                        1)	<span class="colored">None:</span> по подразбиране, без сянка. </br>
+                        2)	<span class="colored">H – shadow</span> позицията на хоризонталната сянка; позволени са и отрицателни стойности. </br>
+                        3)	<span class="colored">V – shadow:</span> позицията на вертикалната сянка; позволени са и отрицателни стойности. </br>
+                        4)	<span class="colored">Blur:</span> замъгленото разстояние. </br>
+                        5)	<span class="colored">Spread:</span> размера на сянката; позволени са и отрицателни стойности. </br>
+                        6)	<span class="colored">Color:</span> цвета на сянката; цветът по подразбиране е черен. </br>
+                        7)	<span class="colored">Inset:</span> променя сянката от външна на вътрешна.<a href="#source29">[29]</a></p>
+
+                    </div>
+
+                    <div class="col-md-12 well">
+                        <legend id="anch7">Box Sizing</legend>
+                        <p>Както вече споменахме, общата ширина на един елемент включва и неговите отстъпи, 
+                            граници и маржове. CSS3 обаче предоставя свойство <span class="colored">box – sizing</span>, което ни позволява да 
+                            променим как точно да работи моделът на кутията и как да се изчислява размерът на елементите. 
+                            <span class="colored">Box – sizing</span> приема три основни стойности : 
+                            <span class="colored">content – box, padding – box и border – box</span>, всяка 
+                            от които има различно отражение върху начина, по който се изчислява размера на кутията.
+                            <a href="#source4-22">[17]</a></p>
+                        <h4>Content Box</h4>
+                        <p>Стойността <span class="colored">content – box</span> е тази по подразбиране. Ако не използваме свойсвтово 
+                        <span class="colored">box – sizing</span>, 
+                            това ще бъде стойността по подразбиране за всички елементи. Размерът на даден елемент започва 
+                            с ширината и височината,а след това се добавят стойности на отстъп, граница или марж.
+                            <a href="#source4-22">[18]</a></p>
+                        <img src="img/content-box.PNG" alt="content-box" class="code">
+                        <h4>Padding Box</h4>
+                        <p><span class="colored">Padding – box</span> променя модела на кутията, като включва всички стойности на отстъпа към ширината и 
+                            височината на елемента. Ако даден елемент има ширина 400 пиксела и padding от 20 пиксела около 
+                            всяка страна, действителната ширина ще остане 400 пиксела. С увеличаване стойностите на padding-а, 
+                            съдържанието на дадения елемент се свива пропорционално.</p>
+                        <p>Ако добавим граница или марж, тези стойности ще бъдат добавени към ширината или височината, за да се
+                             изчисли пълният размер на кутията. Например, ако добавим граница от 10 пиксела и отстъп от 20 пиксела 
+                             около всяка страна на елемент с ширина 400 пиксела, действителната ширина ще стане 420 пиксела.
+                             <a href="#source4-22">[19]</a></p>
+                        <h4>Border Box</h4>
+                        <p><span class="colored">Border – box</span> променя модела на кутията, така че всички border и <span class="colored">padding</span>
+                         стойности да са включени в 
+                            ширината и височината на елемента. Когато се използва <span class="colored">border – box</span>, ако даден елемент има ширина 400 
+                            пиксела, padding от 20 пиксела около всяка страна и граница от 10 пиксела около всяка страна, 
+                            действителната ширина ще остане 400 пиксела. Ако добавим марж, стойностите му ще трябва да бъдат 
+                            добавени при изчисляване на пълния размер на кутията.<a href="#source4-22">[20]</a>
+                        <p>Най-общо казано, най-добрата стойност за <span class="colored">box – sizing</span> е <span class="colored">border – box</span>
+                        . <span class="colored">Border – box</span> изключително 
+                            улеснява нашите пресмятания. Ако искаме даден елемент да бъде широк 400 пиксела, той е и той ще 
+                            остане широк 400 пиксела, независимо от това, какви padding или border стойности добавяме към него. 
+                            Друг плюс е, че можем да смесваме различни стойности на дължини без това да повлияе на първоначалния 
+                            размер(проценти, пиксели и др.).<a href="#source4-22">[21]</a></p>
+                        <p>И все пак трябва да внимаваме, когато използваме <span class="colored">box – sizing</span>
+                        , защото по- старите версии на браузърите 
+                            не го поддържат. </p>
+
+                   </div>
+
+                    <div class="col-md-12 well">
+                        <legend id="anch8">Developer Tools</legend>
+                        <p>Повечето браузъри имат така наречените „Инструменти за програмисти”(<span class="colored">Developer Tools</span>). 
+                            Тези инструменти ни позволяват да инспектираме елемент на страницата, да видим къде се 
+                            намира този елемент в HTML документа и да видим какви  CSS свойства и стойности се прилагат 
+                            към него. Повечето от тези инструменти също включват box- model диаграма, за да ни покажат 
+                            изчисления размер на даден елемент.<a href="#source4-22">[22]</a></p>
+                        <p>За да видим тези <span class="colored">Developer Tools</span> в Google Chrome, трябва да кликнем с дясно копче на мишката 
+                            върху страницата, която искаме да инспектираме и от менюто да изберем „Инспектиране” (<span class="colored">Inspect</span>). 
+                            Така се зарежда прозорец в дясната част на страницата в браузъра, който предоставя различни 
+                            инструменти за изследване на нашия код. Чрез клавишната комбинация „<span class="colored">Ctrl+Shift+C</span>” можем да 
+                            задържим курсора на мишката над различни елементи и да кликнем върху тях, за да ги инспектираме. 
+                            След като сме избрали елемент, можем да видим, че се е заредило разбиване на съответния <span class="colored">box – model</span> 
+                            за нашия елемент.</p>
+                        <div class="polaroid">
+                            <img src="img/lorem-ips.PNG" alt="lorem-ips" width="100%">
+                            <div class="container">
+                            <p>Фигура 5. The Google Chrome Developer Tools, които ни помагат при </br>инспектирането на HTML и 
+                                CSS на всяка една страница
+                            </p>
+                            </div>
+                        </div>
+                        <p>Има много какво да научим от нашия код, ако решим да се заиграем с <span class="colored">Developer Tools</span>, 
+                            било то в Google Chrome, Mozilla Firefox, Apple Safari или други браузъри. Добре е тези 
+                            инструменти винаги да ни бъдат отворени, когато пишем HTML и CSS, защото могат много да ни 
+                            помогнат. Също така е добра идея да инспектираме кода и на други уебсайтове, за да обогатим 
+                            знанията си, гледайки как са разработени те. </p>
+
+                   </div>
+
+                    <div class="col-md-12 well">
+                        <legend id="anch9">Заключение</legend>
+                        <p>Изучаването на различните части на <span class="colored">box- model</span> не е толкова лесна задача. 
+                            Всички тези понятия отнемат доста време, докато се овладеят напълно. 
+                            <span class="colored">Box – model</span> е една от най-объркващите части от процеса на изучаване на HTML и CSS, 
+                            но също така е една от най-мощните.  Ако овладеем <span class="colored">box – model</span>, всичко останало като 
+                            позициониране на съдържание ще ни бъде доста лесно. </p></br></br></br>
+                        <p>Е, сега е време да се потупаме по рамото. Аз вече го направих, ще изчакам и вас...</p>
+
+                   </div>
+
+                   <div class="col-md-12 well">
+                       <legend id="anch10">Източници</legend>
+                       <p id="source1">[1] Урок за “CSS Box Model”, [
+                           <a href="https://www.w3schools.com/css/css_boxmodel.asp"> 
+                           https://www.w3schools.com/css/css_boxmodel.asp</a>
+                        ], последно посетен на 26.04.2017г. </p>
+
+                        <p id="source2">[2]Урок за “Width and Height of an Element”, [
+                            <a href="https://www.w3schools.com/css/css_boxmodel.asp"> 
+                            https://www.w3schools.com/css/css_boxmodel.asp</a>
+                        ], последно посетен на 26.04.2017г. </p>
+                        <p id="source3">[3]Статия в Уикипедия за “CSS box model”, поледна модификация на 03.12.2016г., [
+                            <a href="https://en.wikipedia.org/wiki/CSS_box_model">
+                        https://en.wikipedia.org/wiki/CSS_box_model</a>
+                        ] </p>
+                        <p id="source4-22">Източници от [4] до [22] се намират на следния линк: [
+                            <a href="http://learn.shayhowe.com/html-css/opening-the-box-model/">
+                        http://learn.shayhowe.com/html-css/opening-the-box-model/</a>
+                        ], последно посетени на 25.04.2017г. </p>
+                        <p>[4] Статия в Shay Howe на тема “Working with the Box Model” </p>
+                        <p>[5] Статия в Shay Howe на тема “Width and Height” </p>
+                        <p>[6] Статия в Shay Howe на тема “Width” </p>
+                        <p>[7] Статия в Shay Howe на тема “Height” </p>
+                        <p>[8] Статия в Shay Howe на тема “Margin and Padding” </p>
+                        <p>[9] Статия в Shay Howe на тема “Margin” </p>
+                        <p>[10] Статия в Shay Howe на тема “Padding” </p>
+                        <p>[11] Статия в Shay Howe на тема “Margin and Padding on Inline-Level Elements” </p>
+                        <p>[12] Статия в Shay Howe на тема “Margin and Padding Declarations” </p>
+                        <p>[13] Статия в Shay Howe на тема “Margin and Padding Colors” </p>
+                        <p>[14] Статия в Shay Howe на тема “Borders” </p>
+                        <p>[15] Статия в Shay Howe на тема “Individual Border Sides” </p>
+                        <p> [16] Статия в Shay Howe на тема “Border Radius” </p>
+                        <p> [17] Статия в Shay Howe на тема “Box Sizing” </p>
+                        <p> [18] Статия в Shay Howe на тема “Content Box” </p>
+                        <p>[19] Статия в Shay Howe на тема “Padding Box” </p>
+                        <p>[20] Статия в Shay Howe на тема “Border Box” </p>
+                        <p>[21] Статия в Shay Howe на тема “Picking a Box Size” </p>
+                        <p>[22] Статия в Shay Howe на тема “Developer Tools” </p>
+                        <p id="source23">[23] Документация на World Wide Web Consortium(W3C) за “Collapsing margins”, [
+                            <a href="https://www.w3.org/TR/CSS21/box.html">
+                        https://www.w3.org/TR/CSS21/box.html</a>
+                        ], последно посетена на 25.04.2017г. </p>
+                        <p id="source24">[24] Статия в Mozilla Developer Network на тема “max – height”, [
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-height">
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/max-height</a>
+                        ], последна модификация на 25.01.2017г. </p>
+                        <p id="source25">[25] Статия в Mozilla Developer Network на тема “min – height”, [
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-height">
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/min-height</a>
+                        ], последна модификация на 25.01.2017г. </p>
+                        <p id="source26">[26] Статия в Mozilla Developer Network на тема “max – width”, [
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width">
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/max-width</a>
+                        ], последна модификация на 27.04.2017г. </p>
+                        <p id="source27">[27] Статия в Mozilla Developer Network на тема “min – width”, [
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width">
+                        https://developer.mozilla.org/en-US/docs/Web/CSS/min-width</a>
+                        ], последна модификация на 03.04.2017г. </p>
+                        <p id="source28">[28] Урок за “CSS overflow Property”,  [
+                            <a href="https://www.w3schools.com/cssref/pr_pos_overflow.asp">
+                        https://www.w3schools.com/cssref/pr_pos_overflow.asp</a>
+                        ], последно посетен на 27.04.2017г. </p>
+                        <p id="source29">[29] Урок за “CSS3 box – shadow Property”,  [
+                            <a href="https://www.w3schools.com/cssref/css3_pr_box-shadow.asp">
+                        https://www.w3schools.com/cssref/css3_pr_box-shadow.asp</a>
+                        ], последно посетен на 27.04.2017г. </p>
+                        <p id="source30">[30] Статия на Marie Mosley на тема “box-decoration-break”, [
+                            <a href="https://css-tricks.com/almanac/properties/b/box-decoration-break/">
+                        https://css-tricks.com/almanac/properties/b/box-decoration-break/</a>
+                        ], последна модификация на 15.06.2015г. </p>
+                        <p id="source31">[31] Урок за “CSS3 border – image Property”, [
+                            <a href="https://www.w3schools.com/cssref/css3_pr_border-image.asp">
+                        https://www.w3schools.com/cssref/css3_pr_border-image.asp</a>
+                        ], последно посетен на 27.04.2017г. </p>
+                   </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
